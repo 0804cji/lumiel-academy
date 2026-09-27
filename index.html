@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="루미엘 아카데미 입학 안내 — 마왕 아카데미에서 살아남기">
+<title>루미엘 아카데미</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Franklin:wght@400;600;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* 토큰: dembrandt 추출(limbuscompany.com) 기준 */
+:root{
+  color-scheme:dark;
+  --black:#000000;          /* on-surface */
+  --crimson:#BD0000;        /* secondary */
+  --gold:#F1BF02;           /* primary */
+  --ink:#0a0a0a; --panel:#141414; --line:#2a2a2a; --line-hi:#444444; /* #444444 = 추출 링크색 */
+  --text:#ececec; --dim:#9a9a9a;
+  --y1:#F1BF02; --y2:#8e5bd1; --y3:#BD0000;
+  --r-sm:2px; --r-md:3px; --r-lg:4px;
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:40px; --s7:64px;
+  --disp:"Bebas Neue","Arial Narrow",sans-serif;
+  --lat:"Libre Franklin","Helvetica Neue",Arial,sans-serif;
+  --kr:"Noto Sans KR","Pretendard","Apple SD Gothic Neo",sans-serif;
+  --ease:ease; --t-fast:.2s; --t-mid:.4s;
+}
+html{background:var(--ink)}
+body{background:var(--ink);color:var(--text);font:15px/1.7 var(--kr);margin:0}
+a{color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+img{display:block;max-width:100%}
+.en{font-family:var(--disp);letter-spacing:.06em;font-weight:400}
+.wrap{max-width:1160px;margin:0 auto;padding-inline:16px}
+
+/* 상단바 */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--black);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:var(--s4);min-height:56px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:var(--s2);font-family:var(--disp);font-size:24px;letter-spacing:.08em;color:var(--text);margin-right:auto}
+.logo i{width:10px;height:22px;background:var(--crimson);display:inline-block}
+.nav{display:flex;gap:0;flex-wrap:wrap}
+.nav button{background:none;border:0;border-bottom:3px solid transparent;color:var(--dim);font:500 14px/1 var(--kr);padding:18px 14px 15px;cursor:pointer;transition:color var(--t-fast) var(--ease),border-color var(--t-fast) var(--ease)}
+.nav button:hover{color:var(--text)}
+.nav button[aria-selected="true"]{color:var(--text);border-bottom-color:var(--gold)}
+.nav .hero-tab{margin-left:var(--s3);color:var(--black);background:var(--crimson);color:#fff;border-bottom:0;border-radius:var(--r-sm);padding:10px 16px;align-self:center}
+.nav .hero-tab[aria-selected="true"]{background:var(--gold);color:var(--black)}
+
+/* 히어로 */
+.hero{position:relative;border-bottom:1px solid var(--line);overflow:hidden}
+.hero .bg{position:absolute;inset:0;background:url(img/room.webp) center/cover;filter:grayscale(.35) brightness(.38)}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.92) 20%,rgba(0,0,0,.35))}
+.hero .wrap{position:relative;padding-block:var(--s7);display:grid;gap:var(--s4)}
+.hero .kicker{font-family:var(--disp);font-size:18px;letter-spacing:.2em;color:var(--gold)}
+.hero h1{font:900 clamp(34px,5.6vw,64px)/1.12 var(--kr);margin:0;letter-spacing:-.02em;text-wrap:balance;max-width:14em}
+.hero h1 b{color:var(--crimson);font-weight:900}
+.hero p{margin:0;max-width:36em;color:#cfcfcf}
+.hero .facts{display:flex;flex-wrap:wrap;gap:0;margin-top:var(--s3);border-top:1px solid var(--line-hi);max-width:640px}
+.hero .facts div{flex:1 1 120px;padding:var(--s3) var(--s4) 0 0}
+.hero .facts b{display:block;font-family:var(--disp);font-size:40px;line-height:1;color:var(--gold);font-weight:400}
+.hero .facts span{font-size:12px;color:var(--dim)}
+
+section{padding-block:var(--s7) 0;scroll-margin-top:40px}
+.head{display:flex;align-items:flex-end;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s5)}
+.head h2{font:900 30px/1.2 var(--kr);margin:0}
+.head .en{font-size:22px;color:var(--crimson);line-height:1}
+.head p{margin:0 0 0 auto;color:var(--dim);font-size:13px}
+
+/* 인사말 */
+.greet{display:grid;grid-template-columns:1fr;gap:var(--s5)}
+.letter{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-lg);display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);overflow:hidden}
+.letter .ph{background:#000;border-right:1px solid var(--line);aspect-ratio:4/5}
+.letter .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 0}
+.letter .tx{padding:var(--s6) var(--s5);display:flex;flex-direction:column;justify-content:center}
+.letter .pos{font-size:12px;color:var(--gold);letter-spacing:.04em}
+.letter h3{font:900 22px/1.3 var(--kr);margin:2px 0 var(--s3)}
+.letter blockquote{margin:0;font-size:17px;line-height:1.9;color:#dcdcdc;max-width:30em}
+.letter .sign{margin-top:var(--s3);font-family:var(--disp);font-size:20px;letter-spacing:.1em;color:var(--dim)}
+
+/* 인물 카드 */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:var(--s4)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;transition:border-color var(--t-mid) var(--ease)}
+.card:hover{border-color:var(--line-hi)}
+.card .ph{aspect-ratio:4/5;background:#000;position:relative;overflow:hidden}
+.card .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 16%}
+.card .no{position:absolute;right:var(--s2);top:var(--s2);font-family:var(--disp);font-size:18px;letter-spacing:.08em;background:rgba(0,0,0,.8);padding:1px 8px;border-radius:var(--r-sm)}
+.card .band{height:4px}
+.card .bd{padding:var(--s3) var(--s4) var(--s4);display:flex;flex-direction:column;gap:2px}
+.card h3{font:900 21px/1.3 var(--kr);margin:0}
+.card .role{font-size:12px;color:var(--gold)}
+.card p{margin:var(--s2) 0 0;font-size:14px;line-height:1.65;color:#d4d4d4}
+.sub{font:700 14px/1 var(--kr);color:var(--dim);margin:var(--s6) 0 var(--s3);display:flex;align-items:center;gap:var(--s2)}
+.sub::before{content:"";width:18px;height:4px;background:var(--sw,var(--line-hi))}
+
+/* 용사 탭 */
+.warn{border:1px solid var(--crimson);border-radius:var(--r-lg);padding:var(--s4) var(--s5);background:rgba(189,0,0,.08);display:flex;gap:var(--s4);align-items:center;flex-wrap:wrap}
+.warn .en{font-size:28px;color:var(--crimson);line-height:1}
+.warn p{margin:0;flex:1 1 280px}
+.threat .card .no{background:var(--crimson);color:#fff}
+.threat .card .order{margin-top:var(--s2);font-size:13px;color:var(--gold);border-top:1px solid var(--line);padding-top:var(--s2)}
+
+footer{margin-top:var(--s7);border-top:1px solid var(--line);padding-block:var(--s5) var(--s6);color:var(--dim);font-size:12px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5);justify-content:space-between}
+
+@media (max-width:640px){
+  .letter{grid-template-columns:1fr}
+  .letter .ph{border-right:0;border-bottom:1px solid var(--line);aspect-ratio:4/5}
+  .nav button{padding:14px 10px 11px}
+  .head p{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="wrap">
+    <div class="logo"><i></i>LUMIEL ACADEMY</div>
+    <nav class="nav" role="tablist" aria-label="메뉴">
+      <button role="tab" id="tab-home" aria-selected="true" data-v="home">학교 소개</button>
+            <button role="tab" id="tab-students" aria-selected="false" data-v="students">학생</button>
+<button role="tab" id="tab-staff" aria-selected="false" data-v="staff">교수진</button>
+      <button role="tab" id="tab-heroes" class="hero-tab" aria-selected="false" data-v="heroes">위협 용사</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div id="v-main">
+    <div class="hero">
+      <div class="bg" aria-hidden="true"></div>
+      <div class="wrap">
+        <span class="kicker">WELCOME, FRESHMEN</span>
+        <h1>용사에게 너무 많은<br><b>마왕</b>이 죽었습니다</h1>
+        <p style="font-size:17px">본교는 대마왕 루미엘의 이름으로 세운 마왕 양성 기관입니다.</p>
+        <p style="color:var(--dim);font-size:13px">졸업생 비율은 공개하지 않습니다.</p>
+      </div>
+    </div>
+
+    <div class="wrap" id="sec-home">
+      <section>
+        <div class="head"><span class="en">GREETINGS</span><h2>인사말</h2></div>
+        <div class="greet">
+          <article class="letter">
+            <div class="ph"><img src="img/g_lumiel.webp" alt="이사장 루미엘"></div>
+            <div class="tx">
+              <span class="pos">이사장 · 대마왕</span>
+              <h3>루미엘</h3>
+              <blockquote>…입학을 축하한다.<br><br>살아서, 졸업하도록.</blockquote>
+              <div class="sign">LUMIEL</div>
+            </div>
+          </article>
+          <article class="letter">
+            <div class="ph"><img src="img/g_eve.webp" alt="부이사장 겸 교관장 이브"></div>
+            <div class="tx">
+              <span class="pos">부이사장 겸 교관장 · 이론·전술</span>
+              <h3>이브</h3>
+              <blockquote>본교의 목적은 단 하나, 여러분이 용사에게 죽지 않게 하는 것입니다. 교육 과정은 가혹하고 평가는 공정합니다. 낙제는 흔하며, 변명은 받지 않습니다. 첫 수업에 늦지 마십시오.</blockquote>
+              <div class="sign">EVE</div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section id="sec-students">
+      <div class="head"><span class="en">STUDENTS</span><h2>학생</h2><p>카드 색 띠 = 완장 색 · <span style="color:#F1BF02">■</span> 1학년 <span style="color:#8e5bd1">■</span> 2학년 <span style="color:#BD0000">■</span> 3학년</p></div>
+      <div id="g-students"></div>
+    </section>
+
+    <section id="sec-heroes" class="threat">
+      <div class="head"><span class="en">THREAT REGISTER</span><h2>위협 용사 목록</h2><p>모험가 길드 연합 순위 기준</p></div>
+      <div class="warn"><span class="en">CAUTION</span><p>아래 인물과 마왕 신분으로 마주쳤을 때는 교전하지 말고 후퇴하십시오. 인간계에서 마왕의 힘을 쓰는 것은 정체를 드러내는 가장 빠른 길입니다.</p></div>
+      <div class="grid" id="g-heroes" style="margin-top:var(--s5)"></div>
+    </section>
+    <section id="sec-staff">
+      <div class="head"><span class="en">FACULTY</span><h2>교수진</h2><p>교관은 금 견장 검은 군복을 입습니다</p></div>
+      <div class="grid" id="g-staff"></div>
+    </section>
+
+  </div>
+</main>
+
+<footer><div class="wrap"><span class="en" style="font-size:16px;letter-spacing:.14em">LUMIEL ACADEMY</span><span>본 문서는 용사에게 제시하지 마십시오</span></div></footer>
+
+<script>
+const card=(p)=>`<article class="card">
+  <div class="ph"><img src="img/${p.id}.webp" alt="${p.n}" loading="lazy"${p.pos?` style="object-position:${p.pos}"`:""}>${p.no?`<span class="no">${p.no}</span>`:''}</div>
+  <div class="band" style="background:${p.c}"></div>
+  <div class="bd"><h3>${p.n}</h3><span class="role">${p.r}</span><p>${p.d}</p>${p.o?`<div class="order">${p.o}</div>`:''}</div></article>`;
+
+const staff=[
+ {id:'eve',n:'이브',r:'부이사장 겸 교관장 · 이론·전술 · 용족',c:'#F1BF02',d:'첫 수업부터 낙제 명단 지참. 질문은 수업 끝난 뒤에만'},
+ {id:'ber',n:'베르',r:'격투 교관 · 오니',c:'#F1BF02',d:'격투 수업 담당. 복도에서도 결투 신청, 져도 웃음'},
+ {id:'hans',n:'한스',r:'힘순찐 과목 교관',c:'#F1BF02',d:'힘순찐 과목 담당. 겉보기엔 동네 아저씨. 인간계 규칙 위반엔 웃으면서 감점'},
+ {id:'nebi',n:'네비',r:'직원 · 뱀파이어',c:'#444444',d:'마력 측정 · 서류 · 영지 추첨 도장 담당. 창구에 가면 대개 취침 중'}
+];
+const students=[
+ {y:'3학년 · 상급',c:'#BD0000',list:[
+  {id:'seraphina',n:'세리피나',r:'학생회장 · 고위 뱀파이어',d:'1학년 인사엔 무응답. 규정 위반자는 이름 대신 학번으로 호명'}]},
+ {y:'2학년 · 중급',c:'#8e5bd1',list:[
+  {id:'anabel',n:'아나벨',r:'선배 멘토 · 서큐버스',d:'3주차부터 1학년 멘토. 간식 챙기기, 옷깃 고쳐 주기 — 사양해도 계속'},
+  {id:'ruga',n:'루가',r:'늑대 수인',d:'점호 시간마다 복도 끝에서 호통. "몇 조 위반?"엔 묵묵부답'}]},
+ {y:'1학년 · 하급',c:'#F1BF02',list:[
+  {id:'jelly',n:'젤리',r:'동기',d:'기분 따라 머리끝이 녹거나 뻗침. 처음 보는 상대에게도 먼저 말 걸기'},
+  {id:'vivian',n:'비비안',r:'동기 · 수석 입학',d:'명문 마왕가 출신 수석 입학생. 평소엔 존댓말, 성적 얘기엔 반말'},
+  {id:'roro',n:'로로',r:'동기 · 정보통',d:'시험 족보 · 교관 일정표 보유. 대가는 돈 말고 비밀'}]}
+];
+const heroes=[
+ {id:'karin',pos:'38% 16%',n:'카린',no:'NO.01',r:'용사 1위',c:'#BD0000',d:'청록빛 은발, 붉은 눈. 파티 없이 단독 행동. 패배 기록 없음',o:'지시 · 마주치면 교전하지 않는다. 도망친다.'},
+ {id:'ciel',n:'시엘',no:'NO.02',r:'용사 2위 · 대마법사',c:'#BD0000',d:'8서클 대마법사. 관심 대상은 말없이 추적. 마력 흐름 감지 최우수',o:'지시 · 인간계에서 마왕의 힘을 쓰지 않는다.'},
+ {id:'estel',n:'에스텔',no:'NO.05',r:'용사 5위 · 제국 공주',c:'#BD0000',d:'그란디아 제국 공주 · 토벌군 지휘관. 적에게도 존댓말, 기습 없음',o:'지시 · 깃발 수로 규모를 가늠한다.'},
+ {id:'lucy',n:'루시',no:'BOUNTY',r:'미등록 모험가 · 현상금 사냥꾼',c:'#444444',d:'길드 미등록. 마왕 현상금 노리고 영지 방문. 패배 시 핑계부터',o:'지시 · 영지 경계를 강화한다.'},
+ {id:'cecilia',n:'세실리아',no:'SAINT',r:'성녀',c:'#444444',d:'마왕에게 "구원" 권유. 거절해도 다음 주 재방문',o:'지시 · 대화에 응하지 않는다.'},
+ {id:'lien',n:'리엔',no:'ARCHER',r:'엘프 궁수',c:'#444444',d:'마족 흔적 추적 후 원거리 저격. 대화 거의 없음',o:'지시 · 흔적을 남기지 않는다.'},
+ {id:'lena',n:'레나',no:'NO.99',r:'초보 용사',c:'#444444',d:'방패 들고 선두 — 폭발음 나면 가장 먼저 후퇴. 첫 침입 평가 참가',o:'지시 · 첫 평가 대상. 겁먹지 말 것.'}
+];
+document.getElementById('g-staff').innerHTML=staff.map(card).join('');
+document.getElementById('g-students').innerHTML=`<div class="grid">${students.flatMap(g=>g.list.map(p=>card({...p,c:g.c,r:g.y.split(' ')[0]+' · '+p.r}))).join('')}</div>`;
+document.getElementById('g-heroes').innerHTML=heroes.map(card).join('');
+
+const tabs=[...document.querySelectorAll('.nav button')];
+const main=document.getElementById('v-main'),S=document.getElementById('sec-staff'),St=document.getElementById('sec-students'),H=document.getElementById('sec-heroes');
+function go(v){
+  tabs.forEach(b=>b.setAttribute('aria-selected',String(b.dataset.v===v)));
+  const t={home:null,staff:S,students:St,heroes:H}[v];
+  if(t)t.scrollIntoView({block:'start'});else window.scrollTo({top:0});
+}
+tabs.forEach(b=>b.addEventListener('click',()=>go(b.dataset.v)));
+</script>
+
+</body>
+</html>
